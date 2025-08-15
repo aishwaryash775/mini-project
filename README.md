@@ -42,7 +42,7 @@ This project demonstrates **sidebar navigation, theme toggling, modal image prev
 ## 🚀 How to Run
 1. **Download or Clone this Repository**  
    ```bash
-   git clone https://github.com/aishwaryash775/shinde-family-website.git
+  [ git clone https://github.com/aishwaryash775/shinde-family-website.git](https://github.com/aishwaryash775/mini-project.git)
    ```
 2. **Open `index_enhanced.html`** in your web browser.
 3. Use the **sidebar menu** to navigate between pages.
