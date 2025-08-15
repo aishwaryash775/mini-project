@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - Shinde Family</title>
+  <link rel="stylesheet" href="style_enhanced.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button id="toggleTheme"><i class="fa-solid fa-moon"></i></button>
+  </div>
+  <div class="main_box">
+    <input type="checkbox" id="check" />
+    <div class="btn_one"><label for="check"><i class="fa-solid fa-bars"></i></label></div>
+    <div class="sidebar_menu">
+      <div class="logo"><a href="index_enhanced.html">Shinde Family</a></div>
+      <div class="btn_two"><label for="check" style="color: grey"><i class="fa-solid fa-xmark"></i></label></div>
+      <div class="menu">
+        <ul>
+          <li class='active'><i class="fa-solid fa-image"></i><a href="gallery.html">Gallery</a></li>
+          <li ><i class="fa-solid fa-arrow-up-right-from-square"></i><a href="shortcuts.html">Shortcuts</a></li>
+          <li ><i class="fa-solid fa-photo-film"></i><a href="exhibits.html">Exhibits</a></li>
+          <li ><i class="fa-solid fa-calendar-days"></i><a href="events.html">Events</a></li>
+          <li ><i class="fa-solid fa-store"></i><a href="store.html">Store</a></li>
+          <li ><i class="fa-solid fa-phone"></i><a href="contact.html">Contact</a></li>
+          <li ><i class="fa-regular fa-comments"></i><a href="feedback.html">Feedback</a></li>
+        </ul>
+      </div>
+      <div class="social_media">
+        <ul>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <main class="container"><h2 class='section-title'>Family Gallery</h2><div class='gallery'><img class='js-zoom' src='photo.jpg' alt='Memory 1'><img class='js-zoom' src='photo.jpg' alt='Memory 2'><img class='js-zoom' src='photo.jpg' alt='Memory 3'><img class='js-zoom' src='photo.jpg' alt='Memory 4'><img class='js-zoom' src='photo.jpg' alt='Memory 5'><img class='js-zoom' src='photo.jpg' alt='Memory 6'><img class='js-zoom' src='photo.jpg' alt='Memory 7'><img class='js-zoom' src='photo.jpg' alt='Memory 8'><img class='js-zoom' src='photo.jpg' alt='Memory 9'><img class='js-zoom' src='photo.jpg' alt='Memory 10'><img class='js-zoom' src='photo.jpg' alt='Memory 11'><img class='js-zoom' src='photo.jpg' alt='Memory 12'></div></main>
+  <div id="imgModal" class="modal">
+    <span class="close" id="modalClose">&times;</span>
+    <div><img id="modalImg" src="" alt=""><div class="caption" id="modalCaption"></div></div>
+  </div>
+  <script>
+    const toggleBtn = document.getElementById('toggleTheme');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+    });
+    if(localStorage.getItem('theme') === 'light') { document.body.classList.add('light-theme'); }
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalCaption = document.getElementById('modalCaption');
+    document.addEventListener('click', (e) => {
+      const img = e.target.closest('.js-zoom');
+      if(img) { modal.classList.add('open'); modalImg.src = img.src; modalCaption.textContent = img.alt || ''; }
+    });
+    document.getElementById('modalClose').onclick = () => modal.classList.remove('open');
+    modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.remove('open'); });
+    
+  </script>
+</body>
+</html>
